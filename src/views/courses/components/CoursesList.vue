@@ -1,6 +1,6 @@
 <template>
   <section class="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-4">
-    <CourseCard v-if="courses.length" v-for="course in courses" :key="course.id" :course="course" />
+    <CourseCard v-if="courses.length" v-for="course in courses" :key="course.id" :course="course" @delete-course="$emit('deleteCourse', course.id)" />
     <span v-else>Cargando...</span>
   </section>
 </template>

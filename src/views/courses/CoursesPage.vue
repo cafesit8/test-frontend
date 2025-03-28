@@ -2,7 +2,7 @@
   <main class="flex flex-col gap-5">
     <h1 class="text-3xl font-bold">Gestión de Cursos</h1>
     <Button @click="openDialog = true" label="Crear Curso" class="self-start" />
-    <CoursesList :courses="courses" />
+    <CoursesList :courses="courses" @delete-course="getCourses" />
     <Dialog v-model:visible="openDialog" modal header="Crear Curso" :style="{ width: '30rem' }">
       <Form @closeModal="closeDialog" />
     </Dialog>
