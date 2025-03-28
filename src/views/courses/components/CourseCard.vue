@@ -35,7 +35,7 @@
         </div>
       </div>
       <div className="bg-white p-4 flex justify-end border-t">
-        <button variant="destructive" className="flex items-center gap-2">
+        <button variant="destructive" className="flex items-center px-3 rounded-md cursor-pointer gap-2 bg-red-400">
           Eliminar
         </button>
       </div>
@@ -45,10 +45,11 @@
 
 <script lang="ts" setup>
 import { computed, defineProps } from 'vue'
+import { verifyDate } from '../../../helpers/index'
 import type { Course } from '../../../types';
 
 const { course } = defineProps<{ course: Course }>()
-const initDate = computed(() => course.fechaInicio ? course.fechaInicio : 'No definido')
-const endDate = computed(() => course.fechaFin ? course.fechaFin : 'No definido')
+const initDate = computed(() => course.fechaInicio ? verifyDate(course.fechaInicio) : 'No definido')
+const endDate = computed(() => course.fechaFin ? verifyDate(course.fechaFin) : 'No definido')
 const categoryIsArray = computed(() => Array.isArray(course.categoria) && course.categoria.length > 0)
 </script>
